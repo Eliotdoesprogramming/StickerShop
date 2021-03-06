@@ -1,0 +1,18 @@
+.rotatingBanner{
+    background-color: aquamarine;
+    text-align: center;
+    height:15%;
+}
+.productPreviews{
+    width:75%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.preview{
+    display: inline-flex;
+    margin:2%;
+    width:30vmin;
+    height:40vmin;
+
+    background-color: rgba(230, 230, 250, 0.37);
+}

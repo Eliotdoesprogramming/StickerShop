@@ -1,1 +1,14 @@
-<p>product-preview works!</p>
+
+<div class="container"><img class="prodImage" [src]="product.imagePath">
+    <div class="prodDetails">
+        <span style="font-size: 22px;">{{product.name}}</span>
+        <br>
+        <span style="font-size:12px">{{product.description}}</span>
+        <br>
+        <span><del>{{(product.price*1.15).toPrecision(4)}}</del></span>
+        <br>
+        <span><ins>{{product.price}}</ins></span>
+    </div>
+</div>
+
+
