@@ -8,10 +8,25 @@
     width: 100%;
     height: fit-content;
     text-align: center;
+    position:relative;
 }
 .prodDetails{
 
 }
 .space{
+    
+}
+.saleIcon{
+    background-color: rgb(172, 144, 218);
+    width:60px;
+    height:60px;
+    border-radius: 50%;
+    position: absolute;
+    top:-25px;
+    right:-25px;
+    z-index: 100;
+    display:flex;
+    justify-content:center;
+    align-items:center;
     
 }

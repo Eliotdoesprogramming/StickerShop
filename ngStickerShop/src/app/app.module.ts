@@ -9,6 +9,9 @@ import {MatListModule} from '@angular/material/list';
 import {MatDividerModule} from '@angular/material/divider';
 import { ProductPreviewComponent } from './components/product-preview/product-preview.component';
 import { HomeComponent } from './pages/home/home.component';
+import { ProductPageComponent } from './pages/product-page/product-page.component';
+import { CheckoutPageComponent } from './pages/checkout-page/checkout-page.component';
+import { ContactPageComponent } from './pages/contact-page/contact-page.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +19,10 @@ import { HomeComponent } from './pages/home/home.component';
     MainMenuComponent,
     FootMenuComponent,
     ProductPreviewComponent,
-    HomeComponent
+    HomeComponent,
+    ProductPageComponent,
+    CheckoutPageComponent,
+    ContactPageComponent
   ],
   imports: [
     BrowserModule,

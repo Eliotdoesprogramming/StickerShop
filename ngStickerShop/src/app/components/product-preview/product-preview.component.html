@@ -5,9 +5,12 @@
         <br>
         <span style="font-size:12px">{{product.description}}</span>
         <br>
-        <span><del>{{(product.price*1.15).toPrecision(4)}}</del></span>
+        <span><del>{{'$'+(product.price*1.15).toFixed(2)}}</del></span>
         <br>
-        <span><ins>{{product.price}}</ins></span>
+        <span><ins>{{'$'+product.price}}</ins></span>
+    </div>
+    <div class="saleIcon">
+        <p style="color: white;">Sale!</p>
     </div>
 </div>
 
