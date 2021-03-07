@@ -20,4 +20,9 @@
     flex-basis:25%;
     margin:3.3333%;
     width: max(25%,200px);
+    transition: transform .2s;
+
+}
+.preview:hover{
+    transform:scale(1.1);
 }

@@ -15,4 +15,7 @@ export class ProductsService {
   getProducts():Product[]{
     return this.products;
   }
+  getProduct(id:number) :Product{
+    return this.products.filter(x => x.id == id)[0];
+  }
 }
