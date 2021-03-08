@@ -1,14 +1,18 @@
-.banner{
+.banner {
     text-align: center;
 }
-.navMenu:hover{
+
+.navMenu:hover {
     color: pink;
 }
-.navMenu{
+
+.navMenu {
     margin-left: 15px;
     margin-right: 15px;
+    margin-bottom: 1%;
 }
-.navList{
+
+.navList {
     margin-left: auto;
     margin-right: auto;
 }
