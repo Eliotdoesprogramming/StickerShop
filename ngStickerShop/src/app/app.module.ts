@@ -13,6 +13,8 @@ import { ProductPageComponent } from './pages/product-page/product-page.componen
 import { CheckoutPageComponent } from './pages/checkout-page/checkout-page.component';
 import { ContactPageComponent } from './pages/contact-page/contact-page.component';
 import { ActivatedRoute } from '@angular/router';
+import { CartComponent } from './components/cart/cart.component';
+import { CartItemComponent } from './components/cart-item/cart-item.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { ActivatedRoute } from '@angular/router';
     HomeComponent,
     ProductPageComponent,
     CheckoutPageComponent,
-    ContactPageComponent
+    ContactPageComponent,
+    CartComponent,
+    CartItemComponent
   ],
   imports: [
     BrowserModule,
