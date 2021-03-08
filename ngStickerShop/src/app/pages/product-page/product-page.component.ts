@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Product } from 'src/app/models/product';
 import { ProductsService } from 'src/app/services/products.service';
 
@@ -8,13 +9,15 @@ import { ProductsService } from 'src/app/services/products.service';
   styleUrls: ['./product-page.component.css']
 })
 export class ProductPageComponent implements OnInit {
-  @Input() id:number;
+  id:number;
   product:Product;
-  constructor(private prodServ:ProductsService) { }
+  constructor(private prodServ:ProductsService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.getProduct();
   }
   getProduct(){
+    this.id =+ this.route.snapshot.paramMap.get('id');
     this.product=this.prodServ.getProduct(this.id);
   }
 

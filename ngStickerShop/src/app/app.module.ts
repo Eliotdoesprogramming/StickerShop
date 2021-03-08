@@ -12,6 +12,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { ProductPageComponent } from './pages/product-page/product-page.component';
 import { CheckoutPageComponent } from './pages/checkout-page/checkout-page.component';
 import { ContactPageComponent } from './pages/contact-page/contact-page.component';
+import { ActivatedRoute } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { ContactPageComponent } from './pages/contact-page/contact-page.componen
     AppRoutingModule,
     BrowserAnimationsModule,
     MatListModule,
-    MatDividerModule
+    MatDividerModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]
