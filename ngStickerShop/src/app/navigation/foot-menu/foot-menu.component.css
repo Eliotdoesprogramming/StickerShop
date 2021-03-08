@@ -1,0 +1,8 @@
+span {
+    font-size: 8px;
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+}
