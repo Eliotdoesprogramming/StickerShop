@@ -16,14 +16,14 @@ export class ProductPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.getProduct();
-    this.cartServ.addItem(this.product);
-    console.log(this.product);
-    console.log(this.cartServ.getCart());
   }
   getProduct(){
     this.id =+ this.route.snapshot.paramMap.get('id');
     this.product=this.prodServ.getProduct(this.id);
     
+  }
+  addProductToCart():void{
+    this.cartServ.addItem(this.product);
   }
 
 }

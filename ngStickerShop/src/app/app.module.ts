@@ -15,6 +15,8 @@ import { ContactPageComponent } from './pages/contact-page/contact-page.componen
 import { ActivatedRoute } from '@angular/router';
 import { CartComponent } from './components/cart/cart.component';
 import { CartItemComponent } from './components/cart-item/cart-item.component';
+import { MatButtonModule} from '@angular/material/button'
+
 
 @NgModule({
   declarations: [
@@ -35,6 +37,7 @@ import { CartItemComponent } from './components/cart-item/cart-item.component';
     BrowserAnimationsModule,
     MatListModule,
     MatDividerModule,
+    MatButtonModule
 
   ],
   providers: [],
