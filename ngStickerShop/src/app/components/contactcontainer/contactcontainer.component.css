@@ -1,0 +1,58 @@
+.container {
+    margin-left: auto;
+    margin-right: auto;
+    width: max(200px, 30%);
+    height: 75vh;
+    background-color: pink;
+    padding-top: 3px
+}
+
+.formhead {
+    background-color: white;
+    margin-left: 3px;
+    margin-right: 3px;
+    margin-bottom: auto;
+    text-align: center;
+    padding: 15px;
+}
+
+.contactus {
+    display: block;
+    font-size: 30px;
+}
+
+.sub {}
+
+.formContent {
+    padding: 1%
+}
+
+.formCont {
+    display: block;
+    width: 80%;
+    margin-top: 5%;
+    margin-left: auto;
+    margin-right: auto
+}
+
+label {}
+
+textarea {
+    display: block;
+    resize: none;
+    width: 80%;
+    margin-bottom: 5%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+button {
+    display: block;
+    background-color: white;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.textareadiv {
+    height: 100%;
+}

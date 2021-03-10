@@ -15,7 +15,8 @@ import { ContactPageComponent } from './pages/contact-page/contact-page.componen
 import { ActivatedRoute } from '@angular/router';
 import { CartComponent } from './components/cart/cart.component';
 import { CartItemComponent } from './components/cart-item/cart-item.component';
-import { MatButtonModule} from '@angular/material/button'
+import { MatButtonModule} from '@angular/material/button';
+import { ContactcontainerComponent } from './components/contactcontainer/contactcontainer.component'
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { MatButtonModule} from '@angular/material/button'
     CheckoutPageComponent,
     ContactPageComponent,
     CartComponent,
-    CartItemComponent
+    CartItemComponent,
+    ContactcontainerComponent
   ],
   imports: [
     BrowserModule,

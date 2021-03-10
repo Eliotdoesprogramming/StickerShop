@@ -1,0 +1,20 @@
+<div class="container">
+    <div class="formhead">
+        <span class="contactus">Contact Us</span>
+        <span class="sub">Please fill out this form in a decent manner.</span>
+    </div>
+    <form action="https://formspree.io/f/xknpdoyj" method="POST">
+        <div class="formContent">
+            <label class="inputLabel"> Name *</label>
+            <input #name class="formCont" type="text" name="name">
+            <label class="inputLabel" type="email"> E-mail </label>
+            <input #email class="formCont" type="text" name="_replyto">
+            <label class="inputLabel">Message description</label>
+            <div class="textareadiv">
+                <textarea class="messageText" name="message"></textarea>
+            </div>
+
+            <button mat-button type="submit">Send</button>
+        </div>
+    </form>
+</div>
