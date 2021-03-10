@@ -1,1 +1,20 @@
-<p>{{product.name}}</p><button id="addButton" mat-button (click)="addProductToCart()">add to cart</button>
+<div class="page">
+<app-product-preview [product]="product" class="preview"></app-product-preview>
+<div class="container">   
+<span style="font-size: 22px;">{{product.name}}</span>
+<br>
+<br>
+<span>{{product.description}}</span>
+
+<br>
+<div id="addButton">
+    <span style="display:block; margin-bottom:2%">Amount in cart: {{quantity}}</span>
+    <button  mat-button (click)="addProductToCart()">add to cart</button>
+</div>
+
+</div>
+</div>
+
+
+
+

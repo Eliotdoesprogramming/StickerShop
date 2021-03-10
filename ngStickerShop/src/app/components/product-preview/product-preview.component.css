@@ -9,7 +9,7 @@
     height: fit-content;
     text-align: center;
     position:relative;
-    background-color: rgba(217, 127, 253, 0.486);
+    background-color:#F8C4DB;
     border-radius: 7px;
     padding:5px;
 }
@@ -20,7 +20,7 @@
     
 }
 .saleIcon{
-    background-color: rgb(172, 144, 218);
+    background-color: #F8C4DB;
     width:60px;
     height:60px;
     border-radius: 50%;

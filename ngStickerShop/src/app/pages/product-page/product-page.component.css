@@ -1,3 +1,28 @@
 #addButton{
-    background-color: rgba(172, 144, 218, 0.637);
+    margin-top:100%;
+    
+
+}
+button{
+    background-color: #F8C4DB;
+}
+.container{
+    position:absolute;
+    text-align: right;
+    display:inline-block;
+    width:15%;
+    height:80%;
+    top:10vh;
+    left:50%;
+}
+.preview{
+    margin-left:auto;
+    
+    width:30%;
+    display:inline-block;
+}
+.page{
+    padding-top:10vh;
+    padding-left:20%;
+    position:relative;
 }

@@ -12,10 +12,14 @@ import { ProductsService } from 'src/app/services/products.service';
 export class ProductPageComponent implements OnInit {
   id:number;
   product:Product;
+  quantity:number =0;
   constructor(private prodServ:ProductsService,private cartServ:CartService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.getProduct();
+    let item = this.cartServ.getCart().filter(x=> x.itemId===this.id);
+    if(item.length>0) this.quantity=item[0].itemQuantity;
+    
   }
   getProduct(){
     this.id =+ this.route.snapshot.paramMap.get('id');
@@ -24,6 +28,7 @@ export class ProductPageComponent implements OnInit {
   }
   addProductToCart():void{
     this.cartServ.addItem(this.product);
+    this.quantity++;
   }
 
 }
