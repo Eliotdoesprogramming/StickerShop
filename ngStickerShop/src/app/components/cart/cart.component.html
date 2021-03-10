@@ -1,2 +1,7 @@
-
-<app-cart-item *ngFor="let cartItem of cart" [item]="cartItem"></app-cart-item>
+<!-- <app-cart-item *ngFor="let cartItem of cart" [item]="cartItem"></app-cart-item> -->
+<mat-list>
+    <mat-list-item *ngFor="let cartItem of cart" class="item">
+        <app-cart-item style="width:100%;" [item]="cartItem"></app-cart-item>
+        <mat-divider></mat-divider>
+    </mat-list-item>
+</mat-list>

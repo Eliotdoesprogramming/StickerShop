@@ -1,28 +1,41 @@
-#addButton{
-    margin-top:100%;
-    
+#addButton {
+    margin-top: 40%;
+}
 
-}
-button{
+button {
     background-color: #F8C4DB;
+    margin-left: auto;
+    margin-right: 2%;
 }
-.container{
-    position:absolute;
+
+.container {
+    position: absolute;
     text-align: right;
-    display:inline-block;
-    width:15%;
-    height:80%;
-    top:10vh;
-    left:50%;
+    display: inline-block;
+    width: 25%;
+    height: 80%;
+    top: 10vh;
+    left: 50%;
 }
-.preview{
-    margin-left:auto;
-    
-    width:30%;
-    display:inline-block;
+
+.preview {
+    margin-left: auto;
+    width: 30%;
+    display: inline-block;
 }
-.page{
-    padding-top:10vh;
-    padding-left:20%;
-    position:relative;
+
+.page {
+    padding-top: 10vh;
+    padding-left: 20%;
+    position: relative;
+}
+
+#goCart {
+    margin-top: 2%;
+    display: block;
+    width: 62%;
+}
+
+.btnr1 {
+    width: 28%
 }

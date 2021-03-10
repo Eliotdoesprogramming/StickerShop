@@ -1,0 +1,27 @@
+.quantity {
+    text-align: right;
+}
+
+.spacer {
+    display: inline-block;
+    width: min(2vh, 40px);
+}
+
+.container {
+    width: 100%;
+}
+
+.itemName {
+    text-align: left;
+}
+
+.itemQty {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+.price {
+    position: absolute;
+    right: 0%;
+}

@@ -41,8 +41,7 @@ import { AboutComponent } from './pages/about/about.component'
     BrowserAnimationsModule,
     MatListModule,
     MatDividerModule,
-    MatButtonModule
-
+    MatButtonModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

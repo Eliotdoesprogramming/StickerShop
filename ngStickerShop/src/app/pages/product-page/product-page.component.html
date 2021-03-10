@@ -1,20 +1,18 @@
 <div class="page">
-<app-product-preview [product]="product" class="preview"></app-product-preview>
-<div class="container">   
-<span style="font-size: 22px;">{{product.name}}</span>
-<br>
-<br>
-<span>{{product.description}}</span>
+    <app-product-preview [product]="product" class="preview"></app-product-preview>
+    <div class="container">
+        <span style="font-size: 22px;">{{product.name}}</span>
+        <br>
+        <br>
+        <span>{{product.description}}</span>
 
-<br>
-<div id="addButton">
-    <span style="display:block; margin-bottom:2%">Amount in cart: {{quantity}}</span>
-    <button  mat-button (click)="addProductToCart()">add to cart</button>
+        <br>
+        <div id="addButton">
+            <span style="display:block; margin-bottom:2%">Amount in cart: {{quantity}}</span>
+            <button mat-button class="btnr1" routerLink="">Return Home</button>
+            <button mat-button class="btnr1" (click)="addProductToCart()">add to cart</button>
+            <button id="goCart" mat-button routerLink="checkout">Checkout</button>
+        </div>
+
+    </div>
 </div>
-
-</div>
-</div>
-
-
-
-
