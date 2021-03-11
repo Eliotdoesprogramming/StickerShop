@@ -17,7 +17,8 @@ import { CartComponent } from './components/cart/cart.component';
 import { CartItemComponent } from './components/cart-item/cart-item.component';
 import { MatButtonModule} from '@angular/material/button';
 import { ContactcontainerComponent } from './components/contactcontainer/contactcontainer.component';
-import { AboutComponent } from './pages/about/about.component'
+import { AboutComponent } from './pages/about/about.component';
+import { PayPalModule } from './paypal/paypal.module';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { AboutComponent } from './pages/about/about.component'
     CartComponent,
     CartItemComponent,
     ContactcontainerComponent,
-    AboutComponent
+    AboutComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -42,6 +44,16 @@ import { AboutComponent } from './pages/about/about.component'
     MatListModule,
     MatDividerModule,
     MatButtonModule,
+    PayPalModule.init({
+      clientId: "sb", // Using sandbox for testing purposes only
+      currency: "EUR",
+      integrationDate: "2020-11-01"
+      //merchantId: "abc"
+      //commit: true,
+      //vault: true,
+      //disableFunding: "card"
+    })
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
