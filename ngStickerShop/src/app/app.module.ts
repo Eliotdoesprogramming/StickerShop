@@ -49,7 +49,7 @@ import { PpComponent } from './components/pp/pp.component';
     PayPalModule.init({
       clientId: "sb", // Using sandbox for testing purposes only
       currency: "USD",
-      integrationDate: "2020-11-01"
+      integrationDate: "2021-03-11"
       //merchantId: "abc"
       //commit: true,
       //vault: true,
