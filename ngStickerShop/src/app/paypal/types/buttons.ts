@@ -1,87 +1,150 @@
-import { Component, OnInit, forwardRef } from '@angular/core';
-import { OnApproveData, OnApproveActions } from './paypal/types/buttons';
-import { OnCancelData, OnErrorData } from './paypal/types/buttons';
-import { PayPalProcessor, OnApprove, OrderRequest } from './paypal';
+import { SubscriptionRequest, SubscriptionResponse } from './subscription';
+import { PaymentRequest, PaymentResponse } from './payment';
+import { OrderRequest, OrderResponse } from './order';
+import { Funding } from './common';
 
-@Component({
-  selector: 'body',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
-  host: { 'class': 'mat-typography' },
-  providers: [ { provide: PayPalProcessor, useExisting: forwardRef(() => AppComponent) }]
-})
-export class AppComponent implements OnApprove { 
+// @see { https://github.com/krakenjs/zoid/blob/master/docs/api.md }
+export interface Buttons {
+  
+  state: any;
+  show: () => Promise<void>;
+  hide: () => Promise<void>;
+  focus: () => Promise<void>;
+  close: () => Promise<void>;
 
-  width = 220;
-  height = 35;
-  shape = 'rect';
-  color = 'gold';
-  label = 'paypal';
-  layout = 'vertical';
+  render: (container: string|HTMLElement) =>  Promise<void>;
 
-  order: OrderRequest = {
-    intent: 'CAPTURE', 
-    payer: {
-      name: {
-        given_name: "PayPal",
-        surname: "Customer"
-      },
-      address: {
-        address_line_1: '123 ABC Street',
-        address_line_2: 'Apt 2',
-        admin_area_2: 'San Jose',
-        admin_area_1: 'CA',
-        postal_code: '95121',
-        country_code: 'US'
-      },
-      email_address: "customer@domain.com",
-      phone: {
-        phone_type: "MOBILE",
-        phone_number: {
-          national_number: "14082508100"
-        }
-      }
-    },
-    purchase_units: [{
-      custom_id: 'wallet10',
-      amount: {
-        currency_code: 'EUR',
-        value: '9.99'
-      },
-      shipping: {
-        address: {
-          address_line_1: '2211 N First Street',
-          address_line_2: 'Building 17',
-          admin_area_2: 'San Jose',
-          admin_area_1: 'CA',
-          postal_code: '95131',
-          country_code: 'US'
-        }
-      }
-    }]
-  };
+  updateProps(config: ButtonsConfig): Promise<void>;
 
-  onApprove(data: OnApproveData, actions: OnApproveActions) {
-    
-    console.log('Transaction Approved:', data);
+  isEligible : () => boolean;
+}
 
-    // Captures the trasnaction
-    return actions.order.capture().then(details => {
+export interface ButtonsConfig {
 
-      console.log('Transaction completed by', details);
+  enableStandardCardFields?: boolean;
 
-      // Call your server to handle the transaction
-      return Promise.reject('Transaction aborted by the server');
-    });
+  fundingSource?: Funding;
+
+  style?: ButtonsStyle;
+
+  onInit?: (data: OnInitData, actions: OnInitActions) => Promise<void>|void;
+
+  onError?: (err: OnErrorData) => Promise<void>|void;
+
+  onClick?: (data: OnClickData, actions: OnClickActions) => Promise<boolean|void>|void;
+
+  createOrder?: (data: CreateOrderData, actions: CreateOrderActions) => Promise<string>;
+
+  createSubscription?: (data: CreateSubscriptionData, actions: CreateSubscriptionActions) => Promise<string>;
+
+  onApprove?: (OnApproveData, OnApproveActions) => Promise<void>|void;
+
+  onCancel?: (OnCancelData, OnCancelActions) => Promise<void>|void;
+
+  onShippingChange?: (OnShippingChangeData, OnShippingChangeActions) => Promise<void>|void;
+}
+
+// @see { https://developer.paypal.com/docs/checkout/integration-features/customize-button }
+export interface ButtonsStyle {
+  layout?: ButtonsLayout;
+  label?: ButtonsLabel;
+  shape?: ButtonsShape;
+  color?: ButtonsColor;
+  height?: number; //25..55
+  tagline?: boolean;
+}
+
+export type ButtonsLayout = 'horizontal' | 'vertical';
+export type ButtonsLabel = 'paypal' | 'checkout' | 'buynow'| 'pay' | 'installment';
+export type ButtonsColor = 'gold' | 'blue' | 'silver' | 'white' | 'black';
+export type ButtonsShape = 'pill' | 'rect';
+
+export type OnInitData = any;
+
+export interface OnInitActions {
+  enable: () => Promise<void>;
+  disable: () => Promise<void>;
+}
+
+export type OnErrorData = any;
+
+export interface OnClickData {
+  fundingSource: Funding;
+}
+
+export interface OnClickActions{
+  resolve: () => Promise<boolean>;
+  reject: () => Promise<boolean>;
+}
+
+export type CreateOrderData = any;
+
+export interface CreateOrderActions {
+  order: { 
+    create: (OrderRequest) => Promise<string> 
+  },
+  payment?: { 
+    create: (PaymentRequest) => Promise<string> 
   }
+}
 
-  onCancel(data: OnCancelData) {
+export type CreateSubscriptionData = any;
 
-    console.log('Transaction Cancelled:', data); 
+export type CreateSubscriptionActions = {
+  subscription : {
+    create : (SubscriptionRequest) => Promise<string>,
+    revise : (string, any) => Promise<string>
   }
+}
 
-  onError(data: OnErrorData) { 
+export interface OnApproveData {
+  orderID: string,
+  payerID?: string,
+  paymentID?: string,
+  subscriptionID?: string,
+  billingToken?: string
+}
 
-    console.log('Transaction Error:', data); 
+export interface OnApproveActions {
+  order: {
+    capture: () => Promise<OrderResponse>,
+    authorize: () => Promise<OrderResponse>,
+    patch: () => Promise<OrderResponse>,
+    get: () => Promise<OrderResponse>
+  },
+  payment?: {
+    execute : () => Promise<PaymentResponse>,
+    patch : () => Promise<PaymentResponse>,
+    get : () => Promise<PaymentResponse>
+  },
+  subscription : {
+    get: () => Promise<SubscriptionResponse>,
+    activate: () => Promise<SubscriptionResponse>
+  },
+  restart: () => Promise<void>,
+  redirect: (string) => Promise<void>
+}
+
+export interface OnCancelData {
+  orderID: string
+}
+
+export interface OnCancelActions {
+  redirect: (string) => Promise<void>
+}
+
+export interface OnShippingChangeData {
+  orderID: string
+  paymentID: string
+  paymentToken: string;
+  shipping_address: any;
+  selected_shipping_method?: any;
+};
+
+export interface OnShippingChangeActions {
+  resolve: () => Promise<void>,
+  reject: (any) => Promise<void>,
+  order: {
+    patch : () => Promise<OrderResponse>
   }
 }

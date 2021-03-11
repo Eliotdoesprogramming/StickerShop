@@ -19,6 +19,7 @@ import { MatButtonModule} from '@angular/material/button';
 import { ContactcontainerComponent } from './components/contactcontainer/contactcontainer.component';
 import { AboutComponent } from './pages/about/about.component';
 import { PayPalModule } from './paypal/paypal.module';
+import { PpComponent } from './components/pp/pp.component';
 
 
 @NgModule({
@@ -35,6 +36,7 @@ import { PayPalModule } from './paypal/paypal.module';
     CartItemComponent,
     ContactcontainerComponent,
     AboutComponent,
+    PpComponent,
     
   ],
   imports: [
@@ -46,7 +48,7 @@ import { PayPalModule } from './paypal/paypal.module';
     MatButtonModule,
     PayPalModule.init({
       clientId: "sb", // Using sandbox for testing purposes only
-      currency: "EUR",
+      currency: "USD",
       integrationDate: "2020-11-01"
       //merchantId: "abc"
       //commit: true,
