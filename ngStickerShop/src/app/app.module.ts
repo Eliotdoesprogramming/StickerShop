@@ -20,6 +20,10 @@ import { ContactcontainerComponent } from './components/contactcontainer/contact
 import { AboutComponent } from './pages/about/about.component';
 import { PayPalModule } from './paypal/paypal.module';
 import { PpComponent } from './components/pp/pp.component';
+import { MatOptionModule } from '@angular/material/core';
+import { MatSelectModule } from '@angular/material/select';
+import {MatInputModule} from '@angular/material/input';
+
 
 
 @NgModule({
@@ -37,6 +41,7 @@ import { PpComponent } from './components/pp/pp.component';
     ContactcontainerComponent,
     AboutComponent,
     PpComponent,
+    ProductPreviewComponent
     
   ],
   imports: [
@@ -54,7 +59,11 @@ import { PpComponent } from './components/pp/pp.component';
       //commit: true,
       //vault: true,
       //disableFunding: "card"
-    })
+    }),
+    MatOptionModule,
+    MatListModule,
+    MatSelectModule,
+    MatInputModule
     
   ],
   providers: [],

@@ -1,3 +1,44 @@
-<p>checkout-page works</p>
-<app-cart></app-cart>
-<pp-button></pp-button>
+<div id="pageContent">
+    <div style="position:relative">
+        <div id="paymentDetails">
+            <mat-form-field class="field, halfLine" appearance="fill">
+                <mat-label>first name</mat-label>
+                <input matInput [value]="order.payer.name.given_name">
+            </mat-form-field>
+            <mat-form-field class="field, halfLine" appearance="fill">
+                <mat-label>last name</mat-label>
+                <input matInput [value]="order.payer.name.surname">
+            </mat-form-field>
+            <mat-form-field class="field, fullLine" appearance="fill">
+                <mat-label>email</mat-label>
+                <input matInput [value]="order.payer.email_address">
+            </mat-form-field>
+            <mat-form-field class="field, fullLine" appearance="fill">
+                <mat-label>Address 1</mat-label>
+                <input matInput [value]="order.payer.address.address_line_1">
+            </mat-form-field>
+            <mat-form-field class="field, fullLine" appearance="fill">
+                <mat-label>Address 2</mat-label>
+                <input matInput [value]="order.payer.address.address_line_2">
+            </mat-form-field>
+            <mat-form-field class="field, halfLine" appearance="fill">
+                <mat-label>City</mat-label>
+                <input matInput [value]="order.payer.address.admin_area_2">
+            </mat-form-field>
+            <mat-form-field class="field, halfLine" appearance="fill">
+                <mat-label>State/Province</mat-label>
+                <input matInput [value]="order.payer.address.admin_area_1">
+            </mat-form-field>
+            <mat-form-field class="field, halfLine" appearance="fill">
+                <mat-label>Country</mat-label>
+                <input matInput [value]="order.payer.address.country_code">
+            </mat-form-field>
+            <mat-form-field class="field, halfLine" appearance="fill">
+                <mat-label>postal code / zip code</mat-label>
+                <input matInput [value]="order.payer.address.postal_code">
+            </mat-form-field>
+        </div>
+        <app-cart class="cart"></app-cart>
+    </div>
+    <pp-button id="ppbutton"></pp-button>
+</div>

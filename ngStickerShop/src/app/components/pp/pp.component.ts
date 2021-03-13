@@ -9,6 +9,7 @@ import { OnApprove, OnApproveActions, OnApproveData, OnCancelData, OnErrorData, 
 })
 export class PpComponent implements OnInit, OnApprove {
   width = 220;
+  //width works but like not more than 50
   height = 35;
   shape = 'rect';
   color = 'gold';
