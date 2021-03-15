@@ -15,11 +15,11 @@
             </mat-form-field>
             <mat-form-field class="field, fullLine" appearance="fill">
                 <mat-label>Address 1</mat-label>
-                <input matInput [value]="order.payer.address.address_line_1">
+                <input matInput [value]="">
             </mat-form-field>
             <mat-form-field class="field, fullLine" appearance="fill">
                 <mat-label>Address 2</mat-label>
-                <input matInput [value]="order.payer.address.address_line_2">
+                <input matInput [value]="">
             </mat-form-field>
             <mat-form-field class="field, halfLine" appearance="fill">
                 <mat-label>City</mat-label>
@@ -40,5 +40,5 @@
         </div>
         <app-cart class="cart"></app-cart>
     </div>
-    <pp-button id="ppbutton"></pp-button>
+    <pp-button [order]="order" id="ppbutton"></pp-button>
 </div>
