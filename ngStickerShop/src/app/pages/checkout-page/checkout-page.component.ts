@@ -15,27 +15,27 @@ export class CheckoutPageComponent implements OnInit {
 
   order: OrderRequest = {
     intent: 'CAPTURE', 
-    payer: {
-      name: {
-        given_name: "PayPal",
-        surname: "Customer"
-      },
-      address: {
-        address_line_1: '345sd',
-        address_line_2: 'Apt 2',
-        admin_area_2: 'San Jose',
-        admin_area_1: 'CA',
-        postal_code: '95121',
-        country_code: 'US'
-      },
-      email_address: "customer@domain.com",
-      phone: {
-        phone_type: "MOBILE",
-        phone_number: {
-          national_number: "14082508100"
-        }
-      }
-    },
+    // payer: {
+    //   name: {
+    //     given_name: "PayPal",
+    //     surname: "Customer"
+    //   },
+    //   address: {
+    //     address_line_1: '345sd',
+    //     address_line_2: 'Apt 2',
+    //     admin_area_2: 'San Jose',
+    //     admin_area_1: 'CA',
+    //     postal_code: '95121',
+    //     country_code: 'US'
+    //   },
+    //   email_address: "customer@domain.com",
+    //   phone: {
+    //     phone_type: "MOBILE",
+    //     phone_number: {
+    //       national_number: "14082508100"
+    //     }
+    //   }
+    // },
     purchase_units: [
       {
           amount: {
@@ -62,14 +62,16 @@ export class CheckoutPageComponent implements OnInit {
   }
   setSubtotal():void {
     let subtotal :number = 0;
-    this.cart.forEach((item)=> {
-                                  subtotal+=(this.productService.getProduct(item.itemId).price)*item.itemQuantity;
+    this.cart.forEach((item)=> {  
+                                  let product = this.productService.getProduct(item.itemId);
+                                  subtotal+=(product.price)*item.itemQuantity;
+                                  
                                   this.order.purchase_units[0].items.push({
-                                    name:this.productService.getProduct(item.itemId).name,
+                                    name:product.name,
                                     description:'test',
                                     unit_amount:{
                                       currency_code:'USD',
-                                      value:this.productService.getProduct(item.itemId).price+'',
+                                      value:product.price+'',
                                     },
                                     quantity:item.itemQuantity+''
                                   })
