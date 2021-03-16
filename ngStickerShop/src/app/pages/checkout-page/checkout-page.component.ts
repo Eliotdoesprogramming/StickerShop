@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { cartItem } from 'src/app/models/cartItem';
-import { OrderRequest } from 'src/app/paypal';
+import { OnApprove, OnApproveActions, OnApproveData, OnCancelData, OnErrorData, OrderRequest } from 'src/app/paypal';
 import { CartService } from 'src/app/services/cart.service';
 import { ProductsService } from 'src/app/services/products.service';
 
@@ -9,10 +9,16 @@ import { ProductsService } from 'src/app/services/products.service';
   templateUrl: './checkout-page.component.html',
   styleUrls: ['./checkout-page.component.css']
 })
-export class CheckoutPageComponent implements OnInit {
+export class CheckoutPageComponent implements OnInit, OnApprove {
   cart : cartItem[];
   constructor(private cartService:CartService, private productService: ProductsService) { }
 
+  //width works but like not more than 50
+  height=25;
+  shape = 'rect';
+  color = 'gold';
+  label = 'paypal';
+  layout = 'vertical';
   order: OrderRequest = {
     intent: 'CAPTURE', 
     // payer: {
@@ -80,5 +86,29 @@ export class CheckoutPageComponent implements OnInit {
     this.order.purchase_units[0].amount.breakdown.item_total.value=subtotal+'';
    console.log(this.order); 
   }
+
+  onApprove(data: OnApproveData, actions: OnApproveActions) {
+    
+    console.log('Transaction Approved:', data);
+
+    // Captures the trasnaction
+    return actions.order.capture().then(details => {
+
+      console.log('Transaction completed by', details);
+
+      // Call your server to handle the transaction
+      return Promise.reject('Transaction aborted by the server');
+    });
+  }
+  onCancel(data: OnCancelData) {
+
+    console.log('Transaction Cancelled:', data); 
+  }
+
+  onError(data: OnErrorData) { 
+
+    console.log('Transaction Error:', data); 
+  }
+
 
 }

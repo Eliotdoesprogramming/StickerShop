@@ -30,5 +30,12 @@ export class ProductPageComponent implements OnInit {
     this.cartServ.addItem(this.product);
     this.quantity++;
   }
+  removeProductFromCart():void{
+    if(this.quantity>0){
+      this.cartServ.removeItem(this.product);
+      this.quantity--;
+    }
+
+  }
 
 }

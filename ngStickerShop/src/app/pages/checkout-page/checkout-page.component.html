@@ -1,6 +1,6 @@
 <div id="pageContent">
-    <div style="position:relative">
-        <!-- <div id="paymentDetails">
+
+    <!-- <div id="paymentDetails">
             <mat-form-field class="field, halfLine" appearance="fill">
                 <mat-label>first name</mat-label>
                 <input matInput [value]="order.payer.name.given_name">
@@ -38,7 +38,7 @@
                 <input matInput [value]="order.payer.address.postal_code">
             </mat-form-field>
         </div> -->
-        <app-cart class="cart"></app-cart>
-    </div>
-    <pp-button [order]="order" id="ppbutton"></pp-button>
+    <app-cart class="cart"></app-cart>
+
+    <wm-paypal [height]="height" [layout]="layout" [shape]="shape" [color]="color" [label]="label" [request]="order" (cancel)="onCancel($event)" (error)="onError($event)" #paypal enableStandardCardFields></wm-paypal>
 </div>

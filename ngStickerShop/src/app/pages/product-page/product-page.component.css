@@ -30,10 +30,7 @@ button {
     position: relative;
 }
 
-#goCart {
-    margin-top: 2%;
-    display: block;
-    width: 62%;
+.btnr1 {
+    min-width: 100px;
+    margin-top: 1%;
 }
-
-.btnr1 {}

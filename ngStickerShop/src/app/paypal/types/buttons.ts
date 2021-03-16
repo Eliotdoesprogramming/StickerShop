@@ -51,6 +51,7 @@ export interface ButtonsStyle {
   shape?: ButtonsShape;
   color?: ButtonsColor;
   height?: number; //25..55
+  
   tagline?: boolean;
 }
 

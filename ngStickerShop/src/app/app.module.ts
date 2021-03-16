@@ -19,11 +19,11 @@ import { MatButtonModule} from '@angular/material/button';
 import { ContactcontainerComponent } from './components/contactcontainer/contactcontainer.component';
 import { AboutComponent } from './pages/about/about.component';
 import { PayPalModule } from './paypal/paypal.module';
-import { PpComponent } from './components/pp/pp.component';
 import { MatOptionModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
 import {MatInputModule} from '@angular/material/input';
 import { merchantId, shopId } from './models/paypalconfig';
+
 
 
 
@@ -41,7 +41,7 @@ import { merchantId, shopId } from './models/paypalconfig';
     CartItemComponent,
     ContactcontainerComponent,
     AboutComponent,
-    PpComponent,
+    
     ProductPreviewComponent
     
   ],
@@ -55,7 +55,7 @@ import { merchantId, shopId } from './models/paypalconfig';
     PayPalModule.init({
       clientId: shopId, // Using sandbox for testing purposes only
       currency: "USD",
-      integrationDate: "2021-03-11",
+      integrationDate: "2021-03-16",
       merchantId: merchantId
       //commit: true,
       //vault: true,

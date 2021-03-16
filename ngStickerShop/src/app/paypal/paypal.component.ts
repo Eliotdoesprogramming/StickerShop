@@ -183,7 +183,8 @@ import {
             color: this.color,
             shape: this.shape,
             tagline: this.layout === "horizontal" && this.tagline,
-            height: this.height
+            height: this.height,
+            
           },
   
           // Handles buttons initialization
