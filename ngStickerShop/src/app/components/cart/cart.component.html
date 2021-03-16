@@ -4,4 +4,5 @@
         <app-cart-item style="width:100%;" [item]="cartItem"></app-cart-item>
         <mat-divider></mat-divider>
     </mat-list-item>
+    <mat-list-item *ngIf="cart.length===0" style="text-align: center;"> cart is empty :(</mat-list-item>
 </mat-list>
