@@ -23,6 +23,7 @@ import { PpComponent } from './components/pp/pp.component';
 import { MatOptionModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
 import {MatInputModule} from '@angular/material/input';
+import { merchantId, shopId } from './models/paypalconfig';
 
 
 
@@ -52,10 +53,10 @@ import {MatInputModule} from '@angular/material/input';
     MatDividerModule,
     MatButtonModule,
     PayPalModule.init({
-      clientId: "sb", // Using sandbox for testing purposes only
+      clientId: shopId, // Using sandbox for testing purposes only
       currency: "USD",
-      integrationDate: "2021-03-11"
-      //merchantId: "abc"
+      integrationDate: "2021-03-11",
+      merchantId: merchantId
       //commit: true,
       //vault: true,
       //disableFunding: "card"
