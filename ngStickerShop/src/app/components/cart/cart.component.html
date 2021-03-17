@@ -1,7 +1,8 @@
 <!-- <app-cart-item *ngFor="let cartItem of cart" [item]="cartItem"></app-cart-item> -->
 <mat-list style="width:100%;">
     <mat-list-item style="width:100%" *ngFor="let cartItem of cart" class="item">
-        <app-cart-item style="width:100%;" [item]="cartItem"></app-cart-item>
+        <app-cart-item style="width:80%; display:inline-block" [item]="cartItem"></app-cart-item>
+        <div style="display:inline-block; margin-left:auto"><button mat-button (click)="addItem(cartItem)">+</button><br><button mat-button (click)="removeItem(cartItem)">-</button></div>
         <mat-divider></mat-divider>
     </mat-list-item>
     <mat-list-item *ngIf="cart.length===0" style="text-align: center;"> cart is empty :(</mat-list-item>

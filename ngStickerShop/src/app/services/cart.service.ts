@@ -14,7 +14,9 @@ export class CartService {
     else this.cart.push({itemId:prod.id,itemQuantity:1});
   }
   removeItem(prod:Product):void{
+    
     let toIncrement = this.cart.filter(it => it.itemId ==prod.id);
+    if(toIncrement[0].itemQuantity<1) return;
     if(toIncrement.length>0){
       toIncrement[0].itemQuantity--;
       if(toIncrement[0].itemQuantity<1){

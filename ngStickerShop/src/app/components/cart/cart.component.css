@@ -4,3 +4,9 @@
     margin-right: 5%;
     background-color: rgba(255, 192, 203, 0.561);
 }
+button{
+    height:30%;
+    line-height: 20px;
+    min-width:40px;
+    background-color: pink;
+}
