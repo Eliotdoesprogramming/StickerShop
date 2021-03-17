@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 import { cartItem } from 'src/app/models/cartItem';
 import { Product } from 'src/app/models/product';
@@ -11,9 +11,10 @@ import { ProductsService } from 'src/app/services/products.service';
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
+  @Input() subtotal:number;
   cart:cartItem[];
   cartSize:number;
-  cartUpdateEmitter:EventEmitter<any>;
+  @Output() cartUpdate:EventEmitter<any> = new EventEmitter();
   constructor(private cartService:CartService, private productService:ProductsService) { }
 
   ngOnInit(): void {
@@ -25,12 +26,15 @@ export class CartComponent implements OnInit {
   addItem(toAdd:cartItem){
     
     this.cartService.addItem(this.productService.getProduct(toAdd.itemId));
-
+    console.log('added')
+    this.cartUpdate.emit(null);
   }
   removeItem(toRemove: cartItem):void{
     if(toRemove.itemQuantity<1) return;
+    console.log('removed')
     
     this.cartService.removeItem(this.productService.getProduct(toRemove.itemId));
+    this.cartUpdate.emit(null);
   }
 
 }

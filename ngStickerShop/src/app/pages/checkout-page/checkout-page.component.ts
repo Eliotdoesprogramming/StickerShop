@@ -14,6 +14,7 @@ export class CheckoutPageComponent implements OnInit, OnApprove {
   constructor(private cartService:CartService, private productService: ProductsService) { }
 
   //width works but like not more than 50
+  subtotal:number = 0;
   height=25;
   shape = 'rect';
   color = 'gold';
@@ -67,10 +68,10 @@ export class CheckoutPageComponent implements OnInit, OnApprove {
     this.setSubtotal();
   }
   setSubtotal():void {
-    let subtotal :number = 0;
+    this.subtotal = 0;
     this.cart.forEach((item)=> {  
                                   let product = this.productService.getProduct(item.itemId);
-                                  subtotal+=(product.price)*item.itemQuantity;
+                                  this.subtotal+=(product.price)*item.itemQuantity;
                                   
                                   this.order.purchase_units[0].items.push({
                                     name:product.name,
@@ -82,9 +83,9 @@ export class CheckoutPageComponent implements OnInit, OnApprove {
                                     quantity:item.itemQuantity+''
                                   })
     });
-    this.order.purchase_units[0].amount.value=subtotal+'';
-    this.order.purchase_units[0].amount.breakdown.item_total.value=subtotal+'';
-   console.log(this.order); 
+    this.order.purchase_units[0].amount.value=this.subtotal+'';
+    this.order.purchase_units[0].amount.breakdown.item_total.value=this.subtotal+'';
+   console.log(this.subtotal); 
   }
 
   onApprove(data: OnApproveData, actions: OnApproveActions) {
