@@ -26,7 +26,7 @@ export interface SubscriptionResponse {
   create_time: string;
   update_time: string;
   links: LinkDescription[];
-};
+}
 
 export interface Subscriber {
   name: PartyName;

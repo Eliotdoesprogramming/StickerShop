@@ -13,7 +13,7 @@ export interface PaymentRequest {
 export interface PaymentResponse {
   status: AuthorizationStatus;
   status_details: AuthorizationStatusDetails;
-  id: string,
+  id: string;
   amonut: Money;
   invoice_id: string;
   custom_id: string;

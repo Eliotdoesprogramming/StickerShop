@@ -5,7 +5,7 @@ export type OrderStatus = 'APPROVED' | 'SAVED' | 'CREATED' | 'VOIDED' | 'COMPLET
 export type OrderIntent = 'CAPTURE' | 'AUTHORIZE';
 
 export interface OrderRequest {
-  intent: OrderIntent,
+  intent: OrderIntent;
   purchase_units: PurchaseUnitRequest[];
   payer?: Payer;
   application_context?: ApplicationContext;
@@ -20,7 +20,7 @@ export interface OrderResponse {
   purchase_units: PurchaseUnitRequest[];
   status: OrderStatus;
   links: LinkDescription[];
-};
+}
 
 export interface PurchaseUnitRequest {
   amount: AmountWithBreakdown;

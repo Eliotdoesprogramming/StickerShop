@@ -23,7 +23,7 @@ import { MatOptionModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
 import {MatInputModule} from '@angular/material/input';
 import { merchantId, shopId } from './models/paypalconfig';
-import {LayoutModule} from '@angular/cdk/layout'
+import {LayoutModule} from '@angular/cdk/layout';
 
 
 
@@ -42,9 +42,9 @@ import {LayoutModule} from '@angular/cdk/layout'
     CartItemComponent,
     ContactcontainerComponent,
     AboutComponent,
-    
+
     ProductPreviewComponent
-    
+
   ],
   imports: [
     BrowserModule,
@@ -55,19 +55,19 @@ import {LayoutModule} from '@angular/cdk/layout'
     MatButtonModule,
     PayPalModule.init({
       clientId: shopId, // Using sandbox for testing purposes only
-      currency: "USD",
-      integrationDate: "2021-03-16",
-      merchantId: merchantId
-      //commit: true,
-      //vault: true,
-      //disableFunding: "card"
+      currency: 'USD',
+      integrationDate: '2021-03-16',
+      merchantId
+      // commit: true,
+      // vault: true,
+      // disableFunding: "card"
     }),
     MatOptionModule,
     MatListModule,
     MatSelectModule,
     MatInputModule,
     LayoutModule
-    
+
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -14,10 +14,10 @@ export class PayPalModule {
 
   constructor(@Optional() @Inject(PAYPAL_CONFIG) config: PayPalConfig) {
 
-    if(!config){ throw new Error(`
+    if (!config){ throw new Error(`
       PayPal module has not been initialized.
       Make sure to call PayPalModule.init(...) in your root module.
-    `);}
+    `); }
 
     // Triggers the paypal.js API loading asyncronously.
     $paypal = loadPayPalSdk(config);

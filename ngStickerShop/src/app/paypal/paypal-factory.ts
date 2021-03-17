@@ -35,7 +35,7 @@ export function loadPayPalSdk(config: PayPalConfig): Promise<PayPal> {
         script.type = 'text/javascript';
         script.defer = true;
         script.async = true;
-        
+
         (document.head || document.body).appendChild(script);
 
         return script;
@@ -45,10 +45,10 @@ export function loadPayPalSdk(config: PayPalConfig): Promise<PayPal> {
       const script = findScript() || injectScript();
 
       // Listens for error or completion
-      script.addEventListener('error', () => reject( new Error("Unable to load PayPal SDK") ));
+      script.addEventListener('error', () => reject( new Error('Unable to load PayPal SDK') ));
       script.addEventListener('load', () => resolve( getPayPal() ));
     }
-    catch(e) { reject(e); }
+    catch (e) { reject(e); }
   });
 }
 
@@ -59,9 +59,9 @@ export function payPalSdkUrl(config: PayPalConfig): string {
     return camel.replace(/([A-Z])/g, $1 => {
       return '-' + $1.toLowerCase();
     });
-  }
+  };
 
-  return Object.keys(config).reduce( (url, token, idx) => {
+   return Object.keys(config).reduce( (url, token, idx) => {
     return url + (idx && '&' || '') + hyphenize(token) + '=' + config[token];
   }, PAYPAL_JS_SDK);
 }

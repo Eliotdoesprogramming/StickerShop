@@ -5,7 +5,7 @@ import { Funding } from './common';
 
 // @see { https://github.com/krakenjs/zoid/blob/master/docs/api.md }
 export interface Buttons {
-  
+
   state: any;
   show: () => Promise<void>;
   hide: () => Promise<void>;
@@ -14,9 +14,9 @@ export interface Buttons {
 
   render: (container: string|HTMLElement) =>  Promise<void>;
 
-  updateProps(config: ButtonsConfig): Promise<void>;
+  isEligible: () => boolean;
 
-  isEligible : () => boolean;
+  updateProps(config: ButtonsConfig): Promise<void>;
 }
 
 export interface ButtonsConfig {
@@ -50,8 +50,8 @@ export interface ButtonsStyle {
   label?: ButtonsLabel;
   shape?: ButtonsShape;
   color?: ButtonsColor;
-  height?: number; //25..55
-  
+  height?: number; // 25..55
+
   tagline?: boolean;
 }
 
@@ -81,29 +81,29 @@ export interface OnClickActions{
 export type CreateOrderData = any;
 
 export interface CreateOrderActions {
-  order: { 
-    create: (OrderRequest) => Promise<string> 
-  },
-  payment?: { 
-    create: (PaymentRequest) => Promise<string> 
-  }
+  order: {
+    create: (OrderRequest) => Promise<string>
+  };
+  payment?: {
+    create: (PaymentRequest) => Promise<string>
+  };
 }
 
 export type CreateSubscriptionData = any;
 
 export type CreateSubscriptionActions = {
-  subscription : {
-    create : (SubscriptionRequest) => Promise<string>,
-    revise : (string, any) => Promise<string>
+  subscription: {
+    create: (SubscriptionRequest) => Promise<string>,
+    revise: (string, any) => Promise<string>
   }
-}
+};
 
 export interface OnApproveData {
-  orderID: string,
-  payerID?: string,
-  paymentID?: string,
-  subscriptionID?: string,
-  billingToken?: string
+  orderID: string;
+  payerID?: string;
+  paymentID?: string;
+  subscriptionID?: string;
+  billingToken?: string;
 }
 
 export interface OnApproveActions {
@@ -112,40 +112,40 @@ export interface OnApproveActions {
     authorize: () => Promise<OrderResponse>,
     patch: () => Promise<OrderResponse>,
     get: () => Promise<OrderResponse>
-  },
+  };
   payment?: {
-    execute : () => Promise<PaymentResponse>,
-    patch : () => Promise<PaymentResponse>,
-    get : () => Promise<PaymentResponse>
-  },
-  subscription : {
+    execute: () => Promise<PaymentResponse>,
+    patch: () => Promise<PaymentResponse>,
+    get: () => Promise<PaymentResponse>
+  };
+  subscription: {
     get: () => Promise<SubscriptionResponse>,
     activate: () => Promise<SubscriptionResponse>
-  },
-  restart: () => Promise<void>,
-  redirect: (string) => Promise<void>
+  };
+  restart: () => Promise<void>;
+  redirect: (string) => Promise<void>;
 }
 
 export interface OnCancelData {
-  orderID: string
+  orderID: string;
 }
 
 export interface OnCancelActions {
-  redirect: (string) => Promise<void>
+  redirect: (string) => Promise<void>;
 }
 
 export interface OnShippingChangeData {
-  orderID: string
-  paymentID: string
+  orderID: string;
+  paymentID: string;
   paymentToken: string;
   shipping_address: any;
   selected_shipping_method?: any;
-};
+}
 
 export interface OnShippingChangeActions {
-  resolve: () => Promise<void>,
-  reject: (any) => Promise<void>,
+  resolve: () => Promise<void>;
+  reject: (any) => Promise<void>;
   order: {
-    patch : () => Promise<OrderResponse>
-  }
+    patch: () => Promise<OrderResponse>
+  };
 }

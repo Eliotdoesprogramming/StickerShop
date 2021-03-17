@@ -6,16 +6,16 @@ import { prodArray } from '../models/productList';
   providedIn: 'root'
 })
 export class ProductsService {
-  products:Product[] = prodArray;
+  products: Product[] = prodArray;
 
-  
+
   constructor() { }
 
 
-  getProducts():Product[]{
+  getProducts(): Product[]{
     return this.products;
   }
-  getProduct(id:number) :Product{
-    return this.products.filter(x => x.id == id)[0];
+  getProduct(id: number): Product{
+    return this.products.filter(x => x.id === id)[0];
   }
 }

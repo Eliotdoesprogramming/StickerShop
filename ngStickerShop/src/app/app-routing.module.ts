@@ -7,12 +7,12 @@ import { HomeComponent } from './pages/home/home.component';
 import { ProductPageComponent } from './pages/product-page/product-page.component';
 
 const routes: Routes = [
-                        {path:"",component:HomeComponent},
-                        {path:"product/:id",component:ProductPageComponent},
-                        {path:"contact", component:ContactPageComponent},
-                        {path:"checkout", component:CheckoutPageComponent},
-                        {path:"contact",component:ContactPageComponent},
-                        {path:"about", component:AboutComponent}
+                        {path: '', component: HomeComponent},
+                        {path: 'product/:id', component: ProductPageComponent},
+                        {path: 'contact', component: ContactPageComponent},
+                        {path: 'checkout', component: CheckoutPageComponent},
+                        {path: 'contact', component: ContactPageComponent},
+                        {path: 'about', component: AboutComponent}
                       ];
 
 @NgModule({

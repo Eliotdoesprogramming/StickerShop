@@ -10,28 +10,28 @@ import { ProductsService } from 'src/app/services/products.service';
   styleUrls: ['./product-page.component.css']
 })
 export class ProductPageComponent implements OnInit {
-  id:number;
-  product:Product;
-  quantity:number =0;
-  constructor(private prodServ:ProductsService,private cartServ:CartService, private route: ActivatedRoute) { }
+  id: number;
+  product: Product;
+  quantity = 0;
+  constructor(private prodServ: ProductsService, private cartServ: CartService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.getProduct();
-    let item = this.cartServ.getCart().filter(x=> x.itemId===this.id);
-    if(item.length>0) this.quantity=item[0].itemQuantity;
-    
+    const item = this.cartServ.getCart().filter(x => x.itemId === this.id);
+    if (item.length > 0) { this.quantity = item[0].itemQuantity; }
+
   }
   getProduct(){
-    this.id =+ this.route.snapshot.paramMap.get('id');
-    this.product=this.prodServ.getProduct(this.id);
-    
+    this.id = + this.route.snapshot.paramMap.get('id');
+    this.product = this.prodServ.getProduct(this.id);
+
   }
-  addProductToCart():void{
+  addProductToCart(): void{
     this.cartServ.addItem(this.product);
     this.quantity++;
   }
-  removeProductFromCart():void{
-    if(this.quantity>0){
+  removeProductFromCart(): void{
+    if (this.quantity > 0){
       this.cartServ.removeItem(this.product);
       this.quantity--;
     }

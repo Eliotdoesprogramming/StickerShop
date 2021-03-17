@@ -3,9 +3,9 @@ import { ButtonsConfig, Buttons } from './buttons';
 import { OrderIntent } from './order';
 
 export interface PayPal {
-  
+  version: string;
+
   Buttons(config: ButtonsConfig): Buttons;
-  version: string
 }
 
 // @see { https://developer.paypal.com/docs/checkout/reference/customize-sdk/#query-parameters }
