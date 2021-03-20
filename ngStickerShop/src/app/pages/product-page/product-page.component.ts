@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Product } from 'src/app/models/product';
 import { CartService } from 'src/app/services/cart.service';
 import { ProductsService } from 'src/app/services/products.service';
+import {BreakpointObserver, LayoutModule} from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-product-page',
@@ -13,12 +14,15 @@ export class ProductPageComponent implements OnInit {
   id: number;
   product: Product;
   quantity = 0;
-  constructor(private prodServ: ProductsService, private cartServ: CartService, private route: ActivatedRoute) { }
+  isSmallScreen:boolean;
+  constructor(private prodServ: ProductsService, private cartServ: CartService, private route: ActivatedRoute, private breakpointObserver: BreakpointObserver) { }
 
   ngOnInit(): void {
+    
     this.getProduct();
     const item = this.cartServ.getCart().filter(x => x.itemId === this.id);
     if (item.length > 0) { this.quantity = item[0].itemQuantity; }
+    this.isSmallScreen = this.breakpointObserver.isMatched('(max-width: 599px)');
 
   }
   getProduct(){

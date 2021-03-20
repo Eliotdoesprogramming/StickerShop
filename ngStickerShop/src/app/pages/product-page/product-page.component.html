@@ -1,13 +1,14 @@
 <div class="page">
     <app-product-preview [product]="product" class="preview"></app-product-preview>
     <div class="container">
-        <span style="font-size: 22px;">{{product.name}}</span>
-        <br>
-        <br>
-        <span>{{product.description}}</span>
+        <div *ngIf="!isSmallScreen">
+            <span style="font-size: 22px;">{{product.name}}</span>
+            <br>
+            <br>
+            <span>{{product.description}}</span>
+        </div>
 
-        <br>
-        <div id="addButton">
+        <div [style.margin-top]="isSmallScreen? '0' : '40%'">
             <span style="display:block; margin-bottom:2%">Amount in cart: {{quantity}}</span>
 
 
@@ -15,7 +16,6 @@
             <button mat-button class="btnr1" (click)="removeProductFromCart()"><b>-</b></button>
             <br>
             <button mat-button class="btnr1" routerLink="">Home</button>
-
             <button mat-button class="btnr1" routerLink="/checkout">Checkout</button>
 
         </div>

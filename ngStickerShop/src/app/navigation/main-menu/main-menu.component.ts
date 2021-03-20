@@ -1,3 +1,4 @@
+import { BreakpointObserver } from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,10 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./main-menu.component.css']
 })
 export class MainMenuComponent implements OnInit {
-
-  constructor() { }
+  isSmallScreen:boolean;
+  constructor(private breakpointObserver:BreakpointObserver) { }
 
   ngOnInit(): void {
+    this.isSmallScreen = this.breakpointObserver.isMatched('(max-width: 599px)');
+
   }
 
 }

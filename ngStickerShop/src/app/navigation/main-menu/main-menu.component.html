@@ -9,9 +9,9 @@
             <mat-list-item>
                 <div class="navList">
                     <span class="navMenu" routerLink="" style="outline:0">HOME</span>
-                    <span class="navMenu" routerLink="">ALL PRODUCTS</span>
+                    <span *ngIf="!isSmallScreen" class="navMenu" routerLink="">ALL PRODUCTS</span>
                     <span class="navMenu" routerLink="about">ABOUT</span>
-                    <span class="navMenu" routerLink="contact">CONTACT US</span>
+                    <span *ngIf="!isSmallScreen" class="navMenu" routerLink="contact">CONTACT US</span>
                     <span class="navMenu" routerLink="checkout">CART</span>
                 </div>
             </mat-list-item>

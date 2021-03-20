@@ -1,4 +1,4 @@
-#addButton {
+.addButton {
     margin-top: 40%;
 }
 
@@ -27,7 +27,7 @@ button {
 .page {
     padding-top: 10vh;
     padding-left: 20%;
-    height:60vh;
+    height: 60vh;
     position: relative;
 }
 

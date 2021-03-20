@@ -42,7 +42,6 @@ import {LayoutModule} from '@angular/cdk/layout';
     CartItemComponent,
     ContactcontainerComponent,
     AboutComponent,
-
     ProductPreviewComponent
 
   ],
