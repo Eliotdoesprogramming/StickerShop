@@ -24,6 +24,7 @@ import { MatSelectModule } from '@angular/material/select';
 import {MatInputModule} from '@angular/material/input';
 import { merchantId, shopId } from './models/paypalconfig';
 import {LayoutModule} from '@angular/cdk/layout';
+import { PuchasePolicyComponent } from './pages/puchase-policy/puchase-policy.component';
 
 
 
@@ -42,7 +43,8 @@ import {LayoutModule} from '@angular/cdk/layout';
     CartItemComponent,
     ContactcontainerComponent,
     AboutComponent,
-    ProductPreviewComponent
+    ProductPreviewComponent,
+    PuchasePolicyComponent
 
   ],
   imports: [

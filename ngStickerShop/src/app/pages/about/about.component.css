@@ -1,0 +1,16 @@
+.textbox{
+    border-style: solid;
+    border-color:pink;
+    border-width: 10px;
+    border-radius: 10%;
+    width:20%;
+    padding:1%;
+    margin:5%;
+}
+.text{
+    font-size: 22px;
+}
+.page{
+    width:100%;
+
+}
