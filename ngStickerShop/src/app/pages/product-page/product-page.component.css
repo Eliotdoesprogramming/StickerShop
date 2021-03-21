@@ -9,29 +9,25 @@ button {
 }
 
 .container {
-    position: absolute;
     text-align: right;
     display: inline-block;
-    width: 25%;
     height: 80%;
-    top: 10vh;
-    left: 50%;
+    margin: 2%
 }
 
 .preview {
-    margin-left: auto;
-    width: 30%;
     display: inline-block;
+    margin: 2%;
 }
 
 .page {
     padding-top: 10vh;
-    padding-left: 20%;
     height: 60vh;
-    position: relative;
+    display: flex;
+    justify-content: center;
 }
 
 .btnr1 {
     min-width: 100px;
-    margin-top: 1%;
+    margin-top: 2%;
 }
