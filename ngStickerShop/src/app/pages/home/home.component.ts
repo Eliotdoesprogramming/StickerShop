@@ -1,3 +1,4 @@
+import { BreakpointObserver } from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
 import { Product } from 'src/app/models/product';
 import { ProductsService } from 'src/app/services/products.service';
@@ -9,10 +10,12 @@ import { ProductsService } from 'src/app/services/products.service';
 })
 export class HomeComponent implements OnInit {
   products: Product[];
-  constructor(private prodService: ProductsService) { }
+  isSmallScreen: boolean;
+  constructor(private prodService: ProductsService, private breakpointObserver: BreakpointObserver) { }
 
   ngOnInit(): void {
     this.products = this.prodService.getProducts();
+    this.isSmallScreen = this.breakpointObserver.isMatched('(max-width: 599px)');
   }
 
 }

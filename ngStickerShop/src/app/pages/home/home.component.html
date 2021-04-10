@@ -1,6 +1,6 @@
 <div class="rotatingBanner" style="margin-bottom:1%;">
     <img id="banner" src="../../assets/banner.jpg">
 </div>
-<div class="productPreviews">
-    <app-product-preview class="preview" *ngFor="let product of products" [product]="product" routerLink="/product/{{product.id}}"></app-product-preview>
+<div [class]="isSmallScreen? 'productPreviewsMobile' : 'productPreviews'">
+    <app-product-preview [class]="isSmallScreen?'previewMobile':'preview'" *ngFor="let product of products" [style.width]="isSmallScreen?'85%':'25%'" [product]="product" routerLink="/product/{{product.id}}"></app-product-preview>
 </div>

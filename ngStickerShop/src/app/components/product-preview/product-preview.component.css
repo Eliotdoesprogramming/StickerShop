@@ -1,29 +1,29 @@
-.prodImage{
-    width:100%;
-    display: block;
-    margin-left:auto;
-    margin-right:auto;
-}
-.container{
+.prodImage {
     width: 100%;
-    
-    text-align: center;
-    position:relative;
-    background-color:#F8C4DB;
-    border-radius: 7px;
-    padding:5px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
-.saleIcon{
+
+.container {
+    width: 100%;
+    text-align: center;
+    position: relative;
     background-color: #F8C4DB;
-    width:60px;
-    height:60px;
+    border-radius: 7px;
+    padding: 5px;
+}
+
+.saleIcon {
+    background-color: #F8C4DB;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
     position: absolute;
-    top:-25px;
-    right:-25px;
+    top: -25px;
+    right: -25px;
     z-index: 100;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
