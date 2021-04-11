@@ -87,20 +87,22 @@ export class CheckoutPageComponent implements OnInit, OnApprove {
     this.order.purchase_units[0].amount.breakdown.item_total.value = this.subtotal + '';
     console.log(this.subtotal);
   }
-
-  onApprove(data: OnApproveData, actions: OnApproveActions):any {
-
-    console.log('Transaction Approved:', data);
-
-    // Captures the trasnaction
-    return actions.order.capture().then(details => {
-
-      console.log('Transaction completed by', details);
-
-      // Call your server to handle the transaction
-      return Promise.reject('Transaction aborted by the server');
-    });
+  onApprove(event):any{
+    console.log(event)
   }
+  // onApprove(data: OnApproveData, actions: OnApproveActions):any {
+
+  //   console.log('Transaction Approved:', data);
+
+  //   // Captures the trasnaction
+  //   return actions.order.capture().then(details => {
+
+  //     console.log('Transaction completed by', details);
+
+  //     // Call your server to handle the transaction
+  //     return Promise.reject('Transaction aborted by the server');
+  //   });
+  // }
   onCancel(data: OnCancelData): any {
 
     console.log('Transaction Cancelled:', data);

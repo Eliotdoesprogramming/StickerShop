@@ -40,7 +40,7 @@
         </div> -->
     <app-cart class="cart" [subtotal]="subtotal" (cartUpdate)="setSubtotal()"></app-cart>
 
-    <wm-paypal [height]="height" [layout]="layout" [shape]="shape" [color]="color" [label]="label" [request]="order" (cancel)="onCancel($event)" (error)="onError($event)" #paypal enableStandardCardFields></wm-paypal>
-    <div style="display:flex; text-align: center; width:100%">    <button mat-button routerLink="/purchasepolicy" style="background-color: rgba(255, 192, 203, 0.561); margin-left:auto;margin-right:auto" >Purchase Policy</button></div>
+    <wm-paypal [height]="height" [layout]="layout" [shape]="shape" [color]="color" [label]="label" [request]="order" (approve)="onApprove($event )" (cancel)="onCancel($event)" (error)="onError($event)" #paypal enableStandardCardFields></wm-paypal>
+    <div style="display:flex; text-align: center; width:100%"> <button mat-button routerLink="/purchasepolicy" style="background-color: rgba(255, 192, 203, 0.561); margin-left:auto;margin-right:auto">Purchase Policy</button></div>
 
 </div>
