@@ -8,7 +8,7 @@
         "test": "ng test",
         "lint": "ng lint",
         "e2e": "ng e2e",
-        "aws-deploy": "aws s3 sync dist/ngStickerShop s3://sticker-shop"
+        "aws-deploy": "aws s3 sync dist/ngStickerShop s3://stickersuwu.com"
     },
     "private": true,
     "dependencies": {

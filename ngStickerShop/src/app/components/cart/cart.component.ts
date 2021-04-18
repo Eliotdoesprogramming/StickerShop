@@ -16,7 +16,8 @@ export class CartComponent implements OnInit {
   cartSize: number;
   @Output() cartUpdate: EventEmitter<any> = new EventEmitter();
   constructor(private cartService: CartService, private productService: ProductsService) { }
-
+  // secret comment to test updates
+  
   ngOnInit(): void {
     this.getCart();
   }
